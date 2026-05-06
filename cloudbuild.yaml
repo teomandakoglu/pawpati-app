@@ -1,0 +1,24 @@
+steps:
+  # 1. Frontend imajını build et
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/pawpati-prod/pawpati-frontend:latest', './pawpati/frontend']
+
+  # 2. İmajı kayıt defterine (Registry) gönder
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/pawpati-prod/pawpati-frontend:latest']
+
+  # 3. Cloud Run'da yayına al (Deploy)
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'pawpati-frontend'
+      - '--image'
+      - 'gcr.io/pawpati-prod/pawpati-frontend:latest'
+      - '--region'
+      - 'europe-west1'
+      - '--allow-unauthenticated'
+
+images:
+  - 'gcr.io/pawpati-prod/pawpati-frontend:latest'
