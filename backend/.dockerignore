@@ -1,0 +1,10 @@
+node_modules
+npm-debug.log
+.env
+.env.*
+.git
+.gitignore
+*.md
+tests
+.DS_Store
+gcp-service-account.json

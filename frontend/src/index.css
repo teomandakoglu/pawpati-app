@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #FAFAF9;
+    color: #1C1917;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: rgba(249,115,22,0.15); }
+}
+
+@layer components {
+  .glass-card {
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid #E7E5E4;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    transition: all 0.2s;
+  }
+  .glass-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    border-color: rgba(253,186,116,0.4);
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid #E7E5E4;
+    border-radius: 1rem;
+    padding: 1.25rem;
+  }
+
+  .btn-primary {
+    @apply bg-paw-orange hover:bg-paw-orange-hover text-white font-semibold px-5 py-2.5 rounded-xl
+           transition-all duration-200 shadow-sm inline-flex items-center justify-center gap-2 text-sm;
+  }
+  .btn-secondary {
+    @apply bg-white text-paw-text font-medium px-5 py-2.5 rounded-xl
+           transition-all duration-200 inline-flex items-center justify-center gap-2 text-sm;
+    border: 1px solid #E7E5E4;
+  }
+  .btn-secondary:hover { background: #F5F5F4; }
+  .btn-outline-orange {
+    @apply bg-transparent text-paw-orange font-medium px-5 py-2.5 rounded-xl
+           transition-all duration-200 inline-flex items-center justify-center gap-2 text-sm;
+    border: 2px solid #F97316;
+  }
+  .btn-outline-orange:hover { background: #FFF7ED; }
+  .btn-ghost {
+    @apply bg-transparent text-paw-text-secondary px-4 py-2 rounded-lg
+           transition-all duration-200 inline-flex items-center justify-center gap-2 text-sm;
+  }
+  .btn-ghost:hover { background: #F5F5F4; }
+  .btn-danger {
+    @apply bg-paw-danger hover:bg-red-600 text-white font-semibold px-5 py-2.5 rounded-xl
+           transition-all duration-200 inline-flex items-center justify-center gap-2 text-sm;
+  }
+  .btn-sm { @apply px-3 py-1.5 text-xs rounded-lg; }
+  .btn-lg { @apply px-8 py-3.5 text-base rounded-2xl; }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium;
+  }
+  .badge-success { @apply bg-paw-green-light text-paw-green; border: 1px solid rgba(110,231,183,0.3); }
+  .badge-warning { @apply bg-paw-warning-light text-paw-warning; border: 1px solid rgba(253,224,71,0.4); }
+  .badge-danger  { @apply bg-paw-danger-light text-paw-danger; border: 1px solid #FECACA; }
+  .badge-orange  { @apply bg-paw-orange-light text-paw-orange; border: 1px solid rgba(253,186,116,0.3); }
+  .badge-purple  { @apply bg-paw-purple-light text-paw-purple; border: 1px solid #DDD6FE; }
+
+  .sidebar-link {
+    display: block; padding: 0.625rem 1rem; border-radius: 0.75rem;
+    font-size: 0.875rem; font-weight: 500; color: #57534E;
+    transition: all 0.15s;
+  }
+  .sidebar-link:hover { background: #F5F5F4; color: #1C1917; }
+  .sidebar-link-active {
+    display: block; padding: 0.625rem 1rem; border-radius: 0.75rem;
+    font-size: 0.875rem; font-weight: 600;
+    background: #F97316; color: #fff;
+    box-shadow: 0 1px 3px rgba(249,115,22,0.2);
+  }
+
+  .section-header { @apply text-center mb-12; }
+  .section-header h2 { @apply text-2xl font-bold font-display mb-3 text-paw-text; }
+  .section-header p { @apply text-paw-text-secondary text-base max-w-2xl mx-auto; }
+}
