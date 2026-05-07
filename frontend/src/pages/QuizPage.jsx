@@ -8,7 +8,7 @@ const quizQuestions = [
     options: [
       { emoji: '🐕', label: 'Köpek' },
       { emoji: '🐈', label: 'Kedi' },
-      { emoji: '🐦', label: 'Kuş' },
+      { emoji: '🐹', label: 'Hamster' },
       { emoji: '🐾', label: 'Diğer' },
     ],
   },

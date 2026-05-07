@@ -20,7 +20,7 @@ const SAMPLE_BOXES = [
   {
     title: 'Kişiselleştirilmiş Kutu — Yetişkin Kedi',
     items: 'Yaş mama · Tüy yumağı kontrolü · Pire tedavisi · Oyuncak',
-    price: '₺ 649',
+    price: '₺ 999',
     rating: '4.8',
     reviews: '1.872',
     color: 'border-paw-green',

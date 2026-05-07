@@ -113,6 +113,41 @@ export default function Dashboard() {
             </div>
           </div>
 
+          {/* Veteriner & QR */}
+          <div className="grid lg:grid-cols-2 gap-5">
+            <div className="card">
+              <h3 className="font-bold font-display text-paw-text text-sm mb-3">🗺️ Yakınızdaki Veterinerler</h3>
+              <div className="h-28 rounded-xl bg-[#F5F5F4] border border-[#E7E5E4] flex items-center justify-center text-3xl mb-3">📍</div>
+              <div className="space-y-2">
+                {NEARBY_VETS.map((vet, i) => (
+                  <div key={i} className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-[#F5F5F4] transition-colors">
+                    <span className="text-sm">{vet.partner ? '⭐' : '📍'}</span>
+                    <div className="flex-1 min-w-0">
+                      <div className="text-xs font-medium text-paw-text truncate">{vet.name}</div>
+                      {vet.emergency && <span className="text-[10px] text-paw-danger font-medium">🚨 24 Saat Acil</span>}
+                    </div>
+                    <span className="text-[10px] text-paw-text-muted">{vet.distance} km</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="card text-center">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <h3 className="font-bold font-display text-paw-text text-sm">🔲 PatiKalkan QR</h3>
+              </div>
+              <p className="text-xs text-paw-text-muted mb-3">Klinikte gösterin, %15 indirim kazanın</p>
+              <div className="w-32 h-32 mx-auto rounded-2xl bg-[#F5F5F4] border border-[#E7E5E4] flex items-center justify-center mb-3" id="dynamic-qr-code">
+                <div className="grid grid-cols-5 gap-0.5">
+                  {Array(25).fill(0).map((_, i) => (
+                    <div key={i} className={`w-4 h-4 rounded-sm ${[0,1,2,4,5,6,10,12,14,18,20,21,22,24].includes(i) ? 'bg-paw-text' : 'bg-transparent'}`} />
+                  ))}
+                </div>
+              </div>
+
+            </div>
+          </div>
+
           {/* Kutu İçeriği */}
           <div className="card">
             <div className="flex items-center justify-between mb-1">
@@ -140,45 +175,6 @@ export default function Dashboard() {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-
-          {/* Veteriner & QR */}
-          <div className="grid lg:grid-cols-2 gap-5">
-            <div className="card">
-              <h3 className="font-bold font-display text-paw-text text-sm mb-3">🗺️ Yakınızdaki Veterinerler</h3>
-              <div className="h-28 rounded-xl bg-[#F5F5F4] border border-[#E7E5E4] flex items-center justify-center text-3xl mb-3">📍</div>
-              <div className="space-y-2">
-                {NEARBY_VETS.map((vet, i) => (
-                  <div key={i} className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-[#F5F5F4] transition-colors">
-                    <span className="text-sm">{vet.partner ? '⭐' : '📍'}</span>
-                    <div className="flex-1 min-w-0">
-                      <div className="text-xs font-medium text-paw-text truncate">{vet.name}</div>
-                      {vet.emergency && <span className="text-[10px] text-paw-danger font-medium">🚨 24 Saat Acil</span>}
-                    </div>
-                    <span className="text-[10px] text-paw-text-muted">{vet.distance} km</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="card text-center">
-              <div className="flex items-center justify-center gap-2 mb-2">
-                <h3 className="font-bold font-display text-paw-text text-sm">🔲 PatiKalkan QR</h3>
-                <span className="badge badge-purple !text-[10px]">Gold Üye</span>
-              </div>
-              <p className="text-xs text-paw-text-muted mb-3">Klinikte gösterin, %15 indirim kazanın</p>
-              <div className="w-32 h-32 mx-auto rounded-2xl bg-[#F5F5F4] border border-[#E7E5E4] flex items-center justify-center mb-3" id="dynamic-qr-code">
-                <div className="grid grid-cols-5 gap-0.5">
-                  {Array(25).fill(0).map((_, i) => (
-                    <div key={i} className={`w-4 h-4 rounded-sm ${[0,1,2,4,5,6,10,12,14,18,20,21,22,24].includes(i) ? 'bg-paw-text' : 'bg-transparent'}`} />
-                  ))}
-                </div>
-              </div>
-              <div className="p-2.5 rounded-xl bg-amber-50 border border-amber-200">
-                <p className="text-xs font-semibold text-amber-700">👑 Gold Üye Statüsü</p>
-                <p className="text-[10px] text-paw-text-muted">7 kutu · %15 sürekli indirim</p>
-              </div>
             </div>
           </div>
         </div>

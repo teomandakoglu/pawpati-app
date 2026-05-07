@@ -1,7 +1,7 @@
 steps:
   # 1. Frontend imajını build et
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/pawpati-prod/pawpati-frontend:latest', './pawpati/frontend']
+    args: ['build', '-t', 'gcr.io/pawpati-prod/pawpati-frontend:latest', './frontend']
 
   # 2. İmajı kayıt defterine (Registry) gönder
   - name: 'gcr.io/cloud-builders/docker'
@@ -19,6 +19,8 @@ steps:
       - '--region'
       - 'europe-west1'
       - '--allow-unauthenticated'
+      - '--port'
+      - '8080'
 
 images:
   - 'gcr.io/pawpati-prod/pawpati-frontend:latest'
